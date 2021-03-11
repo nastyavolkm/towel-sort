@@ -2,7 +2,7 @@
 // You should implement your task here.
 
 module.exports = function towelSort (matrix) {
-  if(matrix === undefined){
+  if(matrix === undefined || matrix.length === 0){
     return [];
   }  
     for(let i=0; i<matrix.length; i++){
@@ -17,7 +17,10 @@ module.exports = function towelSort (matrix) {
         }
     
     }
-    matrix = [].concat.apply([], matrix);
-    return matrix;
+
+    return matrix.reduce(function(a, b) {
+        return a.concat(b);
+      });
+    
 }
 
